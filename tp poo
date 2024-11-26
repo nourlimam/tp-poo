@@ -1,0 +1,82 @@
+ex 2.2
+class Carte: 
+  def __init__(self,valeur,couleur): 
+    self.valeur=valeur 
+    self.couleur=couleur 
+  def getAttributs(self): 
+    return (self.valeur,self.couleur)
+  def getValeur(self): 
+    return self.valeur
+  def getCouleur(self): 
+    return self.couleur
+  def setValeur(self,v): 
+    if 2<=v<=14:
+     self.valeur=v
+       return True
+    else:
+       return False
+  
+    
+ def setCouleur(self.c):
+     self.couleur=c
+c2=Carte(13,'coeur')
+c2.setValeur(12)
+print(c2.getValeur())
+ 
+ print(c2.setCouleur('pique')) 
+print(c2.getCouleur())
+print(c2.setValeur(8))
+print(c2.setCouleur('carreau'))
+
+ex2 part2
+class Piece:
+    def __init__(self, nom, surface):
+        self.nom = nom  
+        self.surface = surface  
+
+    def getSurface(self):
+        return self.surface 
+
+    def getNom(self):
+        return self.nom 
+
+    def setSurface(self, s):
+        self.surface = s  
+
+class Appartement:
+    def __init__(self, nom):
+        self.listeDePieces = []  
+        self.nom = nom  
+
+    def getNom(self):
+        return self.nom  
+
+    def ajouter(self, piece):
+        self.listeDePieces.append(piece)  
+
+    def nbPieces(self):
+        return len(self.listeDePieces)  
+
+    def SurfaceTotale(self):
+        return sum(piece.getSurface() for piece in self.listeDePieces)
+
+    def getListePieces(self):
+        return [(piece.getNom(), piece.getSurface()) for piece in self.listeDePieces]
+
+chambre1 = Piece("chambre1", 20)  
+chambre2 = Piece("chambre2", 15)  
+séjour = Piece("séjour", 25)      
+sdb = Piece("sdb", 10)           
+cuisine = Piece("cuisine", 12)    
+
+appart205 = Appartement("appart205")
+
+appart205.ajouter(chambre1)
+appart205.ajouter(chambre2)
+appart205.ajouter(séjour)
+appart205.ajouter(sdb)
+appart205.ajouter(cuisine)
+
+print(appart205.SurfaceTotale())
+
+print(appart205.getListePieces())
